@@ -40,6 +40,9 @@ function ogmt_head( $args ) {
 
 		$ogmt_attachment_url = wp_get_attachment_image_src( $ogmt_image_id, 'full', false )[0];
 
+		// Use site icon if we don't have an image anywhere else
+		$ogmt_attachment_url = $ogmt_attachment_url ?: get_site_icon_url();
+
 		if ( $ogmt_attachment_url ) {
 			?>
 				<meta property="og:image" content="<?php echo esc_attr( $ogmt_attachment_url ); ?>">
